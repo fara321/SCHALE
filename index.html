@@ -27,59 +27,69 @@
             color: blue;
             font-family: 'Curier', sans-serif;
         }
-    </style>
-<script>
-    let alarm = new Audio('Schale.mp3');
-    let timerStarted = false;
 
-    function startTimer() {
-        if (!timerStarted) {
-            let startTime = new Date().getTime();
-            let fiveMinutes = 1000 * 60 * 7.1;
-            let endTime = startTime + fiveMinutes;
-
-            alarm.play(); // Der Alarm wird einmal am Anfang abgespielt
-
-            setInterval(function() {
-                let timeLeft = endTime - new Date().getTime();
-
-                if (timeLeft > 0) {
-                    let minutes = timeLeft / (1000 * 60);
-                    minutes = Math.floor(minutes);
-                    let seconds = (timeLeft / 1000) % 60;
-                    seconds = Math.round(seconds);
-                    seconds = ('0' + seconds).slice(-2);
-                    let text = '0' + minutes + ' : ' + seconds;
-                    timer.innerHTML = text;
-                } else {
-                    alarm.play(); // Der Alarm wird am Ende abgespielt
-                    timer.innerHTML = '00 : 00';
-                }
-            }, 1000);
-
-            timerStarted = true;
+        /* CSS für den Startbutton */
+        #startButton {
+            font-size: 24px; /* Schriftgröße erhöhen */
+            padding: 10px 20px; /* Padding anpassen */
         }
-    }
-</script>
+    </style>
 
 </head>
 
 
 <body class="background-dark">
-    <!-- <div>
-                          <img src="img\menu.png">
-      </div> -->
-
     <div class="center margin-top">
         <img src="Schale.jpg">
     </div>
 
-    <div class="center margin-top timer" id="timer">07 : 05</div>
-
+    <div class="center margin-top timer" id="timer">00 : 00</div>
 
     <div class="center margin-top timer">
-        <img onclick="startTimer()" src="button.png">
+        <input type="number" id="timerInput" placeholder="Zeit in Minuten eingeben">
+        <button id="startButton" onclick="startTimer()">Start</button> <!-- ID für den Startbutton hinzugefügt -->
     </div>
+
+    <script>
+        let alarm = new Audio('Schale.mp3');
+        let timerStarted = false;
+        let timerInput = document.getElementById('timerInput');
+
+        function startTimer() {
+            if (!timerStarted) {
+                let zeit = parseInt(timerInput.value); // Die Benutzereingabe als Zeit in Minuten interpretieren
+
+                if (!isNaN(zeit) && zeit >= 0) {
+                    let startTime = new Date().getTime();
+                    let fiveMinutes = 1000 * 60 * zeit;
+                    let endTime = startTime + fiveMinutes;
+
+                    alarm.play(); // Der Alarm wird einmal am Anfang abgespielt
+
+                    setInterval(function() {
+                        let timeLeft = endTime - new Date().getTime();
+
+                        if (timeLeft > 0) {
+                            let minutes = Math.floor(timeLeft / (1000 * 60));
+                            let seconds = Math.floor((timeLeft / 1000) % 60);
+                            seconds = ('0' + seconds).slice(-2);
+                            let text = ('0' + minutes).slice(-2) + ' : ' + seconds;
+                            document.getElementById('timer').innerHTML = text;
+                        } else {
+                            alarm.play(); // Der Alarm wird am Ende abgespielt
+                            document.getElementById('timer').innerHTML = '00 : 00';
+                        }
+                    }, 1000);
+
+                    timerStarted = true;
+                } else {
+                    alert('Bitte geben Sie eine gültige Zeit in Minuten ein.');
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
+
+
