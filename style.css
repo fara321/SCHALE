@@ -1,0 +1,38 @@
+.background-dark {
+    background-color: #262626;
+}
+
+.center {
+    display: flex; 
+    justify-content: center;
+}
+
+.margin-top {
+    margin-top: 80px;
+}
+
+.timer {
+    font-size: 60px;
+    color: blue;
+    font-family: 'Curier', sans-serif;
+}
+
+
+#startButton {
+    font-size: 24px; /* Schriftgröße erhöhen */
+    padding: 5px 20px; /* Padding anpassen */
+}
+.zeit {
+    font-size: 24px; /* Schriftgröße erhöhen */
+    padding: 10px 20px; /* Padding anpassen */
+}
+
+h1 {
+    /*text-align: center;  */
+    margin-left: 730px;
+    
+    color: #a3f35c;
+    font-size: 11pt;
+    font-family: arial, "lucida console", sans-serif;
+    text-indent: 110px;
+}
