@@ -28,9 +28,9 @@
 }
 
 h1 {
-    width: 30%
-    margin-left: 700px;
-    color: #a3f35c;
+    position: absolute;
+    width: 30%;
+    margin-left: 200px;     color: #a3f35c;
     font-size: 11pt;
     font-family: arial, "lucida console", sans-serif;
     text-indent: 110px;
