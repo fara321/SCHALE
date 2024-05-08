@@ -17,20 +17,34 @@
     font-family: 'Curier', sans-serif;
 }
 
+#timerInput {
+    font-size: 12px; /* Schriftgröße erhöhen */
+    padding: 6px 1px; /* Padding anpassen */
+    width:  80px;
+}
+
 
 #startButton {
-    font-size: 24px; /* Schriftgröße erhöhen */
-    padding: 5px 20px; /* Padding anpassen */
+    font-size: 16px; /* Schriftgröße erhöhen */
+    padding: 6px 3px; /* Padding anpassen */
+    width:  80px;
 }
-.zeit {
-    font-size: 24px; /* Schriftgröße erhöhen */
-    padding: 10px 20px; /* Padding anpassen */
+#repeatInput {
+    font-size: 12px; /* Schriftgröße erhöhen */
+    padding: 6px 1px; /* Padding anpassen */
+    width:  80px;
+}
+
+#zeit {
+    font-size: 12px; /* Schriftgröße erhöhen */
+    padding: 10px 1px; /* Padding anpassen */
+    width:  80px;
 }
 
 h1 {
-  position: relative;
-    width: 30%;
-    left: 100px;
+    position: relative;
+    /*width: 30%;*/
+    left: 1px;
     /*margin-left: 200px; */
         color: #a3f35c;
     font-size: 11pt;
